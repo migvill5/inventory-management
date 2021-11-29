@@ -17,7 +17,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
                             <li><a href="#">Buyer</a></li>
                             <li class="active">List</li>
                         </ol>
@@ -34,7 +34,16 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="box-title">Buyer List </h4>
+                <div class="container">
+                    <div class="row">
+                        <div class="col"><h4 class="box-title">Buyer List </h4></div>
+                        <div class="col-1.5">
+                            <a href="{% url 'create-buyer' %}" class="btn btn-info">
+                                <i class="fa fa-plus"></i> Agregar
+                            </a>
+                        </div>
+                    </div> 
+                </div>
             </div>
             <div class="card-body--">
                 <div class="table-stats order-table ov-h">
@@ -46,6 +55,7 @@
                                 <th>Address</th>
                                 <th>Email</th>
                                 <th>Date</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,6 +67,10 @@
                                 <td>{{ buyer.address }}</td>
                                 <td>{{ buyer.user.email }}</td>
                                 <td>{{ buyer.created_date }}</td>
+                                <td>
+                                    <a href="" class="btn btn-info"><i class="fa fa-pencil"></i></a>
+                                    <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                </td>
                             </tr>
                             {% endfor %}
                             {% else %}

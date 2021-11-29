@@ -17,9 +17,9 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Product</a></li>
-                            <li class="active">List</li>
+                            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                            <li><a href="#">Inventory</a></li>
+                            <li class="active">Products</li>
                         </ol>
                     </div>
                 </div>
@@ -34,27 +34,43 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="box-title">Product List </h4>
+                <div class="container">
+                    <div class="row">
+                        <div class="col"><h4 class="box-title">Product List </h4></div>
+                        <div class="col-1.5">
+                            <a href="{% url 'create-product' %}" class="btn btn-info">
+                                <i class="fa fa-plus"></i> Agregar
+                            </a>
+                        </div>
+                    </div> 
+                </div>
             </div>
             <div class="card-body--">
                 <div class="table-stats order-table ov-h">
-                    <table class="table ">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th class="serial">#</th>
+                                <th>Code</th>
                                 <th>Name</th>
-                                <th>Sort No</th>
+                                <th>Av. Quantity</th>
                                 <th>Date</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% if product %}
-                            {% for product in product %}
+                            {% if products %}
+                            {% for product in products %}
                             <tr>
                                 <td class="serial">{{ forloop.counter }}</td>
+                                <td>{{ product.code }}</td>
                                 <td>{{ product.name }}</td>
-                                <td>{{ product.sortno }}</td>
+                                <td>{{ product.available_quantity }}</td>
                                 <td>{{ product.created_date }}</td>
+                                <td>
+                                    <a href="{% url 'delete-product' product.id %}" class="btn btn-info"><i class="fa fa-pencil"></i></a>
+                                    <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                </td>
                             </tr>
                             {% endfor %}
                             {% else %}

@@ -43,12 +43,40 @@
                         <form action="#" method="post" novalidate="novalidate">
                             {% csrf_token %}
                             <div class="form-group">
+                                <label for="code" class="control-label mb-1">Code</label>
+                                {{ form.code }}
+                            </div>
+                            <div class="form-group">
                                 <label for="name" class="control-label mb-1">Name</label>
                                 {{ form.name }}
                             </div>
                             <div class="form-group">
-                                <label for="sortno" class="control-label mb-1">Sort No</label>
-                                {{ form.sortno }}
+                                <label for="dosage" class="control-label mb-1">Dosage</label>
+                                {{ form.dosage }}
+                            </div>
+                            <div class="form-group">
+                                <label for="regsan" class="control-label mb-1">Reg. San.</label>
+                                {{ form.regsan }}
+                            </div>
+                            <div class="form-group">
+                                <label for="category" class="control-label mb-1">Category</label>
+                                {{ form.category }}
+                            </div>
+                            <div class="form-group">
+                                <label for="location" class="control-label mb-1">Location</label>
+                                {{ form.location }}
+                            </div>
+                            <div class="form-group">
+                                <label for="fabricant" class="control-label mb-1">Fabricant</label>
+                                {{ form.fabricant }}
+                            </div>
+                            <div class="form-group">
+                                <label for="availeble_quantity" class="control-label mb-1">Av. quantity</label>
+                                {{ form.available_quantity }}
+                            </div>
+                            <div class="form-group">
+                                <label for="min_quantity" class="control-label mb-1">Min. quantity</label>
+                                {{ form.min_quantity }}
                             </div>
                             <div>
                                 <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
